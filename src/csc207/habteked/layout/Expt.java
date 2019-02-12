@@ -27,8 +27,8 @@ public class Expt {
    // TBUtils.print(pen, block);
     //TBUtils.print(pen, block2);
     
-    TextBlock top = new CenteredBlock(new TextLine("Hello"), 11);
-    TextBlock bottom = new CenteredBlock(new TextLine("Goodbye"), 11);
+    TextBlock top = new RightJustified(new TextLine("Hello"), 11);
+    TextBlock bottom = new RightJustified(new TextLine("Goodbye"), 11);
     TextBlock block = new BoxedBlock(new VComposition(top,bottom));
     TBUtils.print(pen, block);
 
