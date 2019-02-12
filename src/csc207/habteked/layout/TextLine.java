@@ -30,6 +30,13 @@ public class TextLine implements TextBlock {
   // +---------+-----------------------------------------------------------
   // | Methods |
   // +---------+
+  
+  /**
+   * Updates contents of block to given value.
+   */
+  public void setContents(String newContents) {
+    this.line = newContents;
+  }
 
   /**
    * Get one row from the block.

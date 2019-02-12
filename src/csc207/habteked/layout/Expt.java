@@ -30,9 +30,20 @@ public class Expt {
     TextBlock top = new RightJustified(new TextLine("Hello"), 11);
     TextBlock bottom = new RightJustified(new TextLine("Goodbye"), 11);
     TextBlock block = new BoxedBlock(new VComposition(top,bottom));
-    TBUtils.print(pen, block);
+    TextBlock b2 = new BlockPair(block);
+    TBUtils.print(pen, b2);
 
-    
+    TextLine tb1 = new TextLine("Hello");
+    TextLine tb2 = new TextLine("World");
+    TextBlock compound = new BoxedBlock(new CenteredBlock(new BoxedBlock(new CenteredBlock(new VComposition(tb1, tb2), 7)), 15));
+    pen.println("ORIGINAL");
+    TBUtils.print(pen, compound);
+    tb2.setContents("Someone");
+    pen.println("UPDATED");
+    TBUtils.print(pen, compound);
+    tb1.setContents("Nice to meet you,");
+    pen.println("RE-UPDATED");
+    TBUtils.print(pen, compound);
     
   }
   

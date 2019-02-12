@@ -1,20 +1,28 @@
 package csc207.habteked.layout;
 
-public class BlockPair implements TextBlock{
+public class BlockPair implements TextBlock {
   
-  TextBlock tb;
-  int width; 
-  TextBlock tb2;
+  TextBlock right;
+  TextBlock left;
  
   
-  public BlockPair {
+  public BlockPair(TextBlock tb) {
+   this.right = tb;
+   this.left = tb;
+  } // BlockPair
+  
+  public String row(int i) throws Exception {
+
+    if ((i < 0) || (i >= this.left.height())) {
+      throw new Exception("Invalid row " + i);
+    } // if the row is invalid
+
+    String result;
     
-   this.width = width;
-   this.tb = tb;
-   this.tb2 = tb2;
-  }
-  
-  
+    result = (this.left.row(i)).concat(this.right.row(i));
+
+    return result;
+  } // row(int i)
   
 
   /**
@@ -22,7 +30,7 @@ public class BlockPair implements TextBlock{
      */
     public int height() {
       
-     return this.tb.height +_this.tb.();
+     return this.right.height();
          
     } // height()
 
@@ -31,15 +39,7 @@ public class BlockPair implements TextBlock{
      */
     public int width() {
       
-      return this.width;
+      return this.right.width() + this.left.width();
  
     } // width()
-  
-  
-  
-  
-  
-  
-  
-
-}
+} // BlockPair class
