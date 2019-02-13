@@ -22,7 +22,7 @@ public class TruncatedBlock implements TextBlock {
    * @throws Exception
    */
   public String row(int i) throws Exception {
-
+    
     String str = new String(this.tb.row(i));
 
     String trunc = str.substring(0, this.width);

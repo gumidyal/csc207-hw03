@@ -51,7 +51,7 @@ public class TBUtils {
       try {
         pen.println(block.row(i));
       } catch (Exception e) {
-        pen.println();
+        pen.println(e);
       } // catch (Exception)
     } // for
   } // print(PrintWriter, TextBlock)

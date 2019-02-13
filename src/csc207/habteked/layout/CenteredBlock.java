@@ -1,5 +1,6 @@
 package csc207.habteked.layout;
 
+
 public class CenteredBlock implements TextBlock {
 
   TextBlock tb;
@@ -19,13 +20,16 @@ public class CenteredBlock implements TextBlock {
 
 
   public String row(int i) throws Exception {
-
+    // Check width is valid
+    
+    if (this.tb.width() > this.width) {
+     // System.out.println("tb wid: " + this.tb.width() + "wid: " + this.width());      
+      throw new Exception("Error: String length greater than given width");
+    }
+    
     String str = new String(this.tb.row(i));
 
     int numspace = (this.width - this.tb.width()) / 2;
-    // what if space is negative?
-    // what if dividing by odd #? -- will give wrong width
-    //    e.g. (10 - 5) / 2 = 2, and won't add up to equal 10
 
     String spaces = "";
 
@@ -37,6 +41,10 @@ public class CenteredBlock implements TextBlock {
 
 
     String center = spaces + str + spaces;
+    
+    if (center.length() < this.width) { // Check result is correct lenght
+      center = center + " ";
+    } // if
 
     return center;
   }

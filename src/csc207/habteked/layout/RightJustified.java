@@ -14,6 +14,11 @@ public class RightJustified implements TextBlock {
 
 
   public String row(int i) throws Exception {
+    
+    if (this.tb.width() > this.width) {
+      // System.out.println("tb wid: " + this.tb.width() + "wid: " + this.width());      
+       throw new Exception("Error: String length greater than given width");
+     }
 
     String str = new String(this.tb.row(i));
 
