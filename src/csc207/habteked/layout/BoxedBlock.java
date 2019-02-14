@@ -34,7 +34,7 @@ public class BoxedBlock implements TextBlock {
   /**
    * Get one row from the block.
    *
-   * @pre 0 <= i < this.height()
+   * @pre 0 <= i < this.height() 
    * @exception Exception if the precondition is not met
    */
   public String row(int i) throws Exception {

@@ -23,10 +23,9 @@ public class TruncatedBlock implements TextBlock {
    * Create a new truncated block of the specified width.
    */
   public TruncatedBlock(TextBlock tb, int width) throws Exception {
-
     if (width > 0 && tb.width() > width) {
       throw new Exception("Invalid width");
-    }
+    } // if width too large
 
     this.tb = tb;
     this.width = width;

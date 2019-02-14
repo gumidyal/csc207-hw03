@@ -21,6 +21,9 @@ public class CenteredBlock implements TextBlock {
   
   /**
    * Create a new centered block of the specified width
+   * 
+   * @pre width > the width of tb
+   * @exception Exception if precondition not met
    */
   public CenteredBlock(TextBlock tb, int width) throws Exception {
     if (width < tb.width()) {
