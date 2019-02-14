@@ -35,9 +35,16 @@ public class NonFood implements Item {
     this.price = price;
   } // NonFood(String name, Weight weight, int price)
 
-  // +---------+-----------------------------------------------------
-  // | Methods |
-  // +---------+
+  // +-----------+---------------------------------------------------
+  // | Accessors |
+  // +-----------+
+  
+  /**
+   * Get the name of the non-food
+   */
+  public String getName() {
+    return this.name;
+  } // getName()
   
   /**
    * Returns a string that contains the name of the non-food item
@@ -59,6 +66,10 @@ public class NonFood implements Item {
   public int getPrice() {
     return this.price;
   } // getPrice()
+  
+  // +---------+-----------------------------------------------------
+  // | Methods |
+  // +---------+
 
   /**
    * Checks if this NonFood is identical to other given NonFood

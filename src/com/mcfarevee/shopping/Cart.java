@@ -8,12 +8,11 @@ public class Cart {
   // +--------+------------------------------------------------------
   // | Fields |
   // +--------+
-
-
+  
   ArrayList<Item> cart;
   String name;
   int numPackages;
-  int numItems;
+  //int numItems;
   int totPrice;
   int totWeight;
 
@@ -24,12 +23,10 @@ public class Cart {
   public Cart(String name) {
     this.name = name;
     this.numPackages = 0;
-    this.numItems = 0;
+    //this.numItems = 0;
     this.totPrice = 0;
     this.totWeight = 0;
   }
-
-
 
   // +---------+-----------------------------------------------------
   // | Methods |
@@ -68,7 +65,7 @@ public class Cart {
 
 
   public void remove(String name) {
-
+    
   }
 
   public void merge() {

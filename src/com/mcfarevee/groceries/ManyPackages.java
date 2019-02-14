@@ -28,10 +28,17 @@ public class ManyPackages implements Item {
     this.type = type;
     this.count = count;
   } // ManyPackages(Package type, int count)
-
-  // +---------+-----------------------------------------------------
-  // | Methods |
-  // +---------+
+  
+  // +-----------+---------------------------------------------------
+  // | Accessors |
+  // +-----------+
+  
+  /**
+   * Get the name of the package
+   */
+  public String getName() {
+    return this.type.name;
+  } // getName()
 
   /**
    * Returns a string that contains the number of packages, and information about a given package
@@ -57,7 +64,18 @@ public class ManyPackages implements Item {
   public int getPrice() {
     return this.type.price * this.count;
   } // getPrice()
+  
+  /**
+   * Returns the number of packages
+   */
+  public int getNum() {
+    return this.count;
+  } // getNum()
 
+  // +---------+-----------------------------------------------------
+  // | Methods |
+  // +---------+
+  
   /**
    * Checks if this ManyPackages is identical to other given ManyPackages
    * 
@@ -69,12 +87,5 @@ public class ManyPackages implements Item {
     } else
       return false;
   } // equals(ManyPackages other)
-  
-  /**
-   * Returns the number of packages
-   */
-  public int getNum() {
-    return this.count;
-  } // getNum()
 
 } // ManyPackages class

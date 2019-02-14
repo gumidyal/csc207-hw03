@@ -35,9 +35,16 @@ public class Package implements Item {
     this.price = price;
   } // Package(String name, Weight weight, int price)
 
-  // +---------+-----------------------------------------------------------
-  // | Methods |
-  // +---------+
+  // +-----------+---------------------------------------------------
+  // | Accessors |
+  // +-----------+
+  
+  /**
+   * Get the name of the package
+   */
+  public String getName() {
+    return this.name;
+  } // getName()
   
   /**
    * Return a string that contains the weight of the package and its name
@@ -61,6 +68,10 @@ public class Package implements Item {
   public int getPrice() {
     return this.price;
   } // getPrice()
+  
+  // +---------+-----------------------------------------------------------
+  // | Methods |
+  // +---------+
 
   /**
    * Checks if this Package is identical to other given Package

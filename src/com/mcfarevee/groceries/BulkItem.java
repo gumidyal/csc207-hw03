@@ -35,9 +35,16 @@ public class BulkItem implements Item {
     this.amount = amount;
   } // BulkItem(BulkFood food, Unit unit, int amount)
 
-  // +---------+-----------------------------------------------------
-  // | Methods |
-  // +---------+
+  // +-----------+---------------------------------------------------
+  // | Accessors |
+  // +-----------+
+  
+  /**
+   * Get the name of the food
+   */
+  public String getName() {
+    return this.food.name;
+  } // getName()
   
   /**
    * Return a string that contains the number of units of the BulkItem, type of unit, and type of
@@ -62,7 +69,11 @@ public class BulkItem implements Item {
   public int getPrice() {
     return this.amount * this.food.pricePerUnit;
   } // getPrice()
-
+  
+  // +---------+-----------------------------------------------------
+  // | Methods |
+  // +---------+
+  
   /**
    * Checks if this BulkItem is identical to other given BulkItem
    * 

@@ -42,6 +42,17 @@ public class BulkFood {
     this.supply = supply;
   } // BulkFood(String name, Unit unit, int pricePerUnit, int supply)
 
+  // +-----------+---------------------------------------------------
+  // | Accessors |
+  // +-----------+
+  
+  /**
+   * Get the name of the food
+   */
+  public String getName() {
+    return this.name;
+  } // getName()
+  
   // +---------+-----------------------------------------------------
   // | Methods |
   // +---------+
