@@ -69,5 +69,12 @@ public class ManyPackages implements Item {
     } else
       return false;
   } // equals(ManyPackages other)
+  
+  /**
+   * Returns the number of packages
+   */
+  public int getNum() {
+    return this.count;
+  } // getNum()
 
 } // ManyPackages class
