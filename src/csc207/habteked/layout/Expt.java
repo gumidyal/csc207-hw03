@@ -2,6 +2,12 @@ package csc207.habteked.layout;
 
 import java.io.PrintWriter;
 
+/**
+ * Tests for TextBlock implementations
+ * 
+ * @author Ally Rogers - rogersal@grinnell.edu
+ * @author Kedam Habte - habteked@grinnell.edu
+ */
 public class Expt {
   /**
    * Tests for implementations of TextBlock

@@ -1,5 +1,11 @@
 package csc207.habteked.layout;
 
+/**
+ * Creates a grid made up of one type of character
+ * 
+ * @author Ally Rogers - rogersal@grinnell.edu
+ * @author Kedam Habte - habteked@grinnell.edu
+ */
 public class Grid implements TextBlock {
   // +--------+------------------------------------------------------
   // | Fields |

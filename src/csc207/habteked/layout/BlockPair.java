@@ -1,5 +1,11 @@
 package csc207.habteked.layout;
 
+/**
+ * Creates a pair of identical TextBlocks side-by-side
+ * 
+ * @author Ally Rogers - rogersal@grinnell.edu
+ * @author Kedam Habte - habteked@grinnell.edu
+ */
 public class BlockPair implements TextBlock {
   // +--------+------------------------------------------------------
   // | Fields |

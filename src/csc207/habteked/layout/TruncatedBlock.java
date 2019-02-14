@@ -1,5 +1,11 @@
 package csc207.habteked.layout;
 
+/**
+ * Truncates a TextBlock to a certain width
+ * 
+ * @author Ally Rogers - rogersal@grinnell.edu
+ * @author Kedam Habte - habteked@grinnell.edu
+ */
 public class TruncatedBlock implements TextBlock {
   // +--------+------------------------------------------------------
   // | Fields |

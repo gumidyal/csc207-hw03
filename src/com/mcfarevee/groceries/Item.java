@@ -2,6 +2,9 @@ package com.mcfarevee.groceries;
 
 /**
  * Grocery organization for McFare-Vee
+ * 
+ * @author Ally Rogers - rogersal@grinnell.edu
+ * @author Kedam Habte - habteked@grinnell.edu
  */
 public interface Item {
   // +---------+-----------------------------------------------------------

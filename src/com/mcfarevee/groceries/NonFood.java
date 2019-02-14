@@ -1,5 +1,11 @@
 package com.mcfarevee.groceries;
 
+/**
+ * Creates non-food Item
+ * 
+ * @author Ally Rogers - rogersal@grinnell.edu
+ * @author Kedam Habte - habteked@grinnell.edu
+ */
 public class NonFood implements Item {
   // +--------+------------------------------------------------------
   // | Fields |

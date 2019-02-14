@@ -1,5 +1,11 @@
 package com.mcfarevee.groceries;
 
+/**
+ * Creates a collection of BulkFood items
+ * 
+ * @author Ally Rogers - rogersal@grinnell.edu
+ * @author Kedam Habte - habteked@grinnell.edu
+ */
 public class BulkItem implements Item {
   // +--------+------------------------------------------------------
   // | Fields |

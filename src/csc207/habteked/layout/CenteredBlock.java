@@ -1,5 +1,11 @@
 package csc207.habteked.layout;
 
+/**
+ * Centers a TextBlock within a certain width
+ * 
+ * @author Ally Rogers - rogersal@grinnell.edu
+ * @author Kedam Habte - habteked@grinnell.edu
+ */
 public class CenteredBlock implements TextBlock {
   // +--------+------------------------------------------------------
   // | Fields |

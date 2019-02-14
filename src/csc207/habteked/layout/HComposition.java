@@ -85,15 +85,5 @@ public class HComposition implements TextBlock {
     // width of the right.
     return this.left.width() + this.right.width();
   } // width()
-
-  
- 
-  
-  
-  
-  
-  
-  
-  
   
 } // class HComposition

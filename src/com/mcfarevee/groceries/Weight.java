@@ -1,5 +1,11 @@
 package com.mcfarevee.groceries;
 
+/**
+ * Stores a weight (amount and unit of weight)
+ * 
+ * @author Ally Rogers - rogersal@grinnell.edu
+ * @author Kedam Habte - habteked@grinnell.edu
+ */
 public class Weight {
   // +--------+------------------------------------------------------
   // | Fields |
