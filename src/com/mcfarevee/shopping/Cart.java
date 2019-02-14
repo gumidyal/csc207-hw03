@@ -21,11 +21,6 @@ public class Cart {
   ArrayList<Item> cart;
 
   /**
-   * The name of the cart
-   */
-  String name;
-
-  /**
    * Counter for the total number of packages and other things in the cart
    */
   int numPackages;
@@ -48,8 +43,8 @@ public class Cart {
   /**
    * Create a cart of the given name to hold type Item
    */
-  public Cart(String name) {
-    this.name = name;
+  public Cart() {
+    this.cart = new ArrayList<Item>();
     this.numPackages = 0;
     this.price = 0;
     this.weight = new Weight[] {new Weight(Unit.POUND, 0), new Weight(Unit.GRAM, 0),
