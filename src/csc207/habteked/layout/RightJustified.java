@@ -5,8 +5,10 @@ public class RightJustified implements TextBlock {
   TextBlock tb;
   int width;
 
-  public RightJustified(TextBlock tb, int width) {
-
+  public RightJustified(TextBlock tb, int width) throws Exception {
+    if (width < tb.width()) {
+      throw new Exception("Invalid width");
+    }
     this.tb = tb;
     this.width = width;
 
@@ -14,11 +16,10 @@ public class RightJustified implements TextBlock {
 
 
   public String row(int i) throws Exception {
-    
+
     if (this.tb.width() > this.width) {
-      // System.out.println("tb wid: " + this.tb.width() + "wid: " + this.width());      
-       throw new Exception("Error: String length greater than given width");
-     }
+      throw new Exception("Error: String length greater than given width");
+    }
 
     String str = new String(this.tb.row(i));
 

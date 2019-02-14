@@ -1,70 +1,87 @@
 package csc207.habteked.layout;
 
-
 public class CenteredBlock implements TextBlock {
-
+  // +--------+------------------------------------------------------
+  // | Fields |
+  // +--------+
+  
+  /**
+   * The TextBlock to be centered
+   */
   TextBlock tb;
+  
+  /**
+   * The width of the new centered block
+   */
   int width;
 
-
-
+  // +--------------+------------------------------------------------
+  // | Constructors |
+  // +--------------+
+  
   /**
-   * Create a new truncated block of the specified width.
+   * Create a new centered block of the specified width
    */
-  public CenteredBlock(TextBlock tb, int width) {
-
+  public CenteredBlock(TextBlock tb, int width) throws Exception {
+    if (width < tb.width()) {
+      throw new Exception("Invalid width");
+    } // if row invalid
+    
     this.tb = tb;
     this.width = width;
-
   } // TruncatedBlock(TextBlock, int)
 
-
+  // +---------+-----------------------------------------------------------
+  // | Methods |
+  // +---------+
+  
+  /**
+   * Get the ith row of the block.
+   * 
+   * @pre 0 <= i < this.tb.height()
+   * @throws Exception if the precondition is not met
+   * @throws Exception if block width greater than given width
+   */
   public String row(int i) throws Exception {
-    // Check width is valid
+    // Check i is a valid row
+    if (i < 0 || i >= this.tb.height()) {
+      throw new Exception("Invalid row " + i);
+    } // if row invalid
     
-    if (this.tb.width() > this.width) {
-     // System.out.println("tb wid: " + this.tb.width() + "wid: " + this.width());      
-      throw new Exception("Error: String length greater than given width");
-    }
+    // Check width is valid
+    if (this.tb.width() > this.width) {    
+      throw new Exception("Error: Block width greater than given width");
+    } // if
     
     String str = new String(this.tb.row(i));
-
     int numspace = (this.width - this.tb.width()) / 2;
-
     String spaces = "";
-
-    // adding the number of spaces until it reaches numspace
-
+    // Adding the number of spaces until it reaches numspace
     for (int j = 0; j < numspace; j++) {
       spaces = spaces + " ";
-    }
-
-
-    String center = spaces + str + spaces;
+    } // for
     
-    if (center.length() < this.width) { // Check result is correct lenght
+    // Create a string of the centered row
+    String center = spaces + str + spaces;
+    if (center.length() < this.width) { // Check result is correct length
       center = center + " ";
     } // if
-
+    
     return center;
-  }
+  } // row(int i)
 
-
-
+  /**
+   * Determine how many rows are in the block
+   */
   public int height() {
-
     return this.tb.height();
-
   } // height()
 
   /**
-   * Determine how many columns are in the block.
+   * Determine how many columns are in the block
    */
   public int width() {
-
     return this.width;
-
   } // width()
 
-
-}
+} // CenteredBlock class

@@ -40,11 +40,11 @@ public class BoxedBlock implements TextBlock {
   public String row(int i) throws Exception {
     int h = this.contents.height();
     // The top and bottom of the box
-   
+
     if ((i == 0) || (i == h + 1)) {
       return "+" + TBUtils.dashes(this.contents.width()) + "+";
-         }
-    
+    }
+
     // Stuff within the box
     else if ((i > 0) && (i <= h)) {
       return "|" + this.contents.row(i - 1) + "|";

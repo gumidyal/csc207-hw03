@@ -6,13 +6,14 @@ public class Grid implements TextBlock{
   int height;
   char ch;
   
- public Grid(int width, int height, char ch) {
+ public Grid(int width, int height, char ch) throws Exception {
+   if (width < 0 || 0 > height) {
+     throw new Exception("Invalid width or height");
+   } // if row invalid
     
     this.width = width; 
     this.height = height;
-    this.ch = ch;
-    
-    
+    this.ch = ch;  
   }
   
   
@@ -20,8 +21,13 @@ public class Grid implements TextBlock{
   public String row(int i) throws Exception{
     //throw an exception here 
     //Exception exception = new Exception("Invalid integer");
- 
-    String strRow = "";
+   
+    // Check i is a valid row
+  if (i < 0 || i >= this.height()) {
+     throw new Exception("Invalid row " + i);
+   } // if row invalid
+    
+   String strRow = "";
     String chStr = Character.toString(this.ch);
    
     
