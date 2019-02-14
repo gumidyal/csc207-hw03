@@ -26,4 +26,24 @@ public interface Item {
    */
   public int getPrice();
   
+  /**
+   * Get the name of the Item
+   */
+  public String getName();
+  
+  /**
+   * Get count of the Item
+   */
+  public int getCount();
+  
+  /**
+   * Checks if two Items can merge
+   */
+  public boolean canMerge(Item other);
+  
+  /**
+   * Merge two items if possible
+   */
+  public Item merge(Item other);
+  
 } // interface Item

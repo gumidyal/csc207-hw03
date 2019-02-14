@@ -10,21 +10,21 @@ public class Weight {
   // +--------+------------------------------------------------------
   // | Fields |
   // +--------+
-  
+
   /**
    * The unit that the weight is in
    */
   Unit unit;
-  
+
   /**
    * The value of the weight
    */
   int amount;
-  
+
   // +--------------+------------------------------------------------
   // | Constructors |
   // +--------------+
-  
+
   /**
    * Create a new Weight with the given units and amount
    * 
@@ -34,11 +34,29 @@ public class Weight {
     this.unit = unit;
     this.amount = amount;
   } // Weight(Unit unit, int amount)
-  
+
+  // +-----------+---------------------------------------------------
+  // | Accessors |
+  // +-----------+
+
+  /**
+   * gets the unit of a weight
+   */
+  public Unit getUnit() {
+    return this.unit;
+  } // getUnit()
+
+  /**
+   * gets the amount of weight
+   */
+  public int getAmount() {
+    return this.amount;
+  } // getAmount()
+
   // +---------+-----------------------------------------------------------
   // | Methods |
   // +---------+
-  
+
   /**
    * Checks if this Weight is identical to other given Weight
    * 

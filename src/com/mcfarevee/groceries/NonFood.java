@@ -73,6 +73,13 @@ public class NonFood implements Item {
     return this.price;
   } // getPrice()
   
+  /**
+   * Returns the number of non-food items
+   */
+  public int getCount() {
+    return 1;
+  } // getCount()
+  
   // +---------+-----------------------------------------------------
   // | Methods |
   // +---------+
@@ -90,5 +97,21 @@ public class NonFood implements Item {
       return false;
     } // else
   } // equals(NonFood other)
+  
+  /**
+   * Checks if this NonFood can merge with another Item
+   * 
+   * @returns false
+   */
+  public boolean canMerge(Item other) {
+    return false;
+  } // canMerge(Item other)
+  
+  /**
+   * Non-foods cannot merge, so returns this Item
+   */
+  public Item merge(Item other) {
+    return this;
+  } // merge()
 
 } // NonFood class

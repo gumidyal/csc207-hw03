@@ -74,9 +74,9 @@ public class ManyPackages implements Item {
   /**
    * Returns the number of packages
    */
-  public int getNum() {
+  public int getCount() {
     return this.count;
-  } // getNum()
+  } // getCount()
 
   // +---------+-----------------------------------------------------
   // | Methods |
@@ -88,10 +88,72 @@ public class ManyPackages implements Item {
    * @return true if identical, otherwise false
    */
   public boolean equals(ManyPackages other) {
-    if (this.type.equals(other.type) && this.count == other.count) {
+    if (this == other) {
       return true;
     } else
       return false;
   } // equals(ManyPackages other)
+  
+  /**
+   * Checks if this ManyPackages can merge with other Package
+   */
+  public boolean canMerge(Package other) {
+    if (this.type.equals(other)) {
+      return true;
+    }
+    else return false;
+  } // canMerge(Package other)
+  
+  /**
+   * Checks if this ManyPackages can merge with other ManyPackages
+   */
+  public boolean canMerge(ManyPackages other) {
+    if (this.equals(other)) {
+      return true;
+    }
+    else return false;
+  } // canMerge(ManyPackages other)
+  
+  /**
+   * Checks if this ManyPackages can merge with non-Package or ManyPackages
+   * 
+   * @returns false
+   */
+  public boolean canMerge(Item other) {
+    return false;
+  } // canMerge(Item other)
+  
+  /**
+   * Merges a ManyPackages item with an identical Package item
+   */
+  public ManyPackages merge(Package other) {
+    if (this.type.equals(other)){
+      ManyPackages result = this;
+      result.count++;
+      return result;
+    } // if 
+    return this;
+  } // merge()
+ 
+  /**
+   * Merges two identical ManyPackage items
+   */
+  public ManyPackages merge(ManyPackages other) {
+    if (this.equals(other)){
+      ManyPackages result = this;
+      result.count += other.getCount();
+      return result;
+    } // if
+    return this;
+  } // merge()
+  
+  /**
+   * Cannot merge with non Package or ManyPackages
+   * 
+   * @returns this Item
+   */
+  public Item merge(Item other) {
+    return this;
+  } // merge()
 
 } // ManyPackages class

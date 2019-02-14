@@ -76,6 +76,13 @@ public class BulkItem implements Item {
     return this.amount * this.food.pricePerUnit;
   } // getPrice()
   
+  /**
+   * Returns the amount of BulkFood items
+   */
+  public int getCount() {
+    return 1;
+  } // getCount()
+  
   // +---------+-----------------------------------------------------
   // | Methods |
   // +---------+
@@ -92,6 +99,45 @@ public class BulkItem implements Item {
     } else
       return false;
   } // equals(BulkItem other)
+  
+  /**
+   * Checks if this BulkItem can merge with other BulkItem
+   */
+  public boolean canMerge(BulkItem other) {
+    if (this.equals(other)) {
+      return true;
+    }
+    else return false;
+  } // canMerge(ManyPackages other)
+  
+  /**
+   * Checks if this BulkItem can merge with non-BulkItem
+   * 
+   * @returns false
+   */
+  public boolean canMerge(Item other) {
+    return false;
+  } // canMerge(Item other)
+  
+  /**
+   * Merges two identical bulk items 
+   */
+  public BulkItem merge(BulkItem other) {
+    if (this.equals(other)){
+      BulkItem result = new BulkItem(this.food, this.unit, (this.amount + other.amount)); 
+      return result;
+    } // if
+    return this;
+  } // merge()
+ 
+  /**
+   * Cannot merge with non BulkItem
+   * 
+   * @returns this Item
+   */
+  public Item merge(Item other) {
+    return this;
+  } // merge()
 
 } // BulkItem class
 

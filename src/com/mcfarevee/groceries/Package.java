@@ -10,17 +10,17 @@ public class Package implements Item {
   // +--------+------------------------------------------------------
   // | Fields |
   // +--------+
-  
+
   /**
    * Name of package
    */
   String name;
-  
+
   /**
    * Total weight of package
    */
   Weight weight;
-  
+
   /**
    * Total price of package
    */
@@ -29,7 +29,7 @@ public class Package implements Item {
   // +--------------+------------------------------------------------
   // | Constructors |
   // +--------------+
-  
+
   /**
    * Create a new Package with the given name
    * 
@@ -44,14 +44,14 @@ public class Package implements Item {
   // +-----------+---------------------------------------------------
   // | Accessors |
   // +-----------+
-  
+
   /**
    * Get the name of the package
    */
   public String getName() {
     return this.name;
   } // getName()
-  
+
   /**
    * Return a string that contains the weight of the package and its name
    */
@@ -74,7 +74,14 @@ public class Package implements Item {
   public int getPrice() {
     return this.price;
   } // getPrice()
-  
+
+  /**
+   * Returns the number of packages
+   */
+  public int getCount() {
+    return 1;
+  } // getCount()
+
   // +---------+-----------------------------------------------------------
   // | Methods |
   // +---------+
@@ -92,5 +99,70 @@ public class Package implements Item {
       return false;
     } // else
   } // equals(Package other)
-
+  
+  /**
+   * Checks if this Package can merge with other Package
+   */
+  public boolean canMerge(Package other) {
+    if (this.equals(other)) {
+      return true;
+    }
+    else return false;
+  } // canMerge(Package other)
+  
+  /**
+   * Checks if this Package can merge with other ManyPackages
+   */
+  public boolean canMerge(ManyPackages other) {
+    if (this.equals(other.type)) {
+      return true;
+    }
+    else return false;
+  } // canMerge(ManyPackages other)
+  
+  /**
+   * Checks if this Package can merge with non-Package or ManyPackages
+   * 
+   * @returns false
+   */
+  public boolean canMerge(Item other) {
+    return false;
+  } // canMerge(Item other)
+ 
+  /**
+   * Merges two identical Package items into a ManyPackages item
+   * If not identical, return ManyPackage identical to this Package, with count of 1
+   */
+  public ManyPackages merge(Package other) {
+    if (this.equals(other)){
+      ManyPackages result = new ManyPackages(this, 2); 
+      return result;
+    } // if
+    ManyPackages result = new ManyPackages(this, 1); 
+    return result;
+  } // merge()
+ 
+  /**
+   * Merges a Package item with an identical ManyPackages item
+   * If not identical, return ManyPackage identical to this Package, with count of 1
+   */
+  public ManyPackages merge(ManyPackages other) {
+    if (this.equals(other.type)){
+      ManyPackages result = other;
+      result.count++;
+      return result;
+    } // if
+    ManyPackages result = new ManyPackages(this, 1); 
+    return result;
+  } // merge()
+  
+  /**
+   * Cannot merge with non Package or ManyPackages
+   * 
+   * @returns this Item
+   */
+  public Item merge(Item other) {
+    return this;
+  } // merge()
+  
 } // Package class
