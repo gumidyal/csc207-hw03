@@ -135,8 +135,8 @@ public class Tests {
   
   
     pen.println("TESTS PRE-MERGING");
-    pen.println("numEntries (should be 14): " + cart.numEntries());
-    pen.println("numThings (should be 23): " + cart.numThings());
+    pen.println("numEntries (should be 13): " + cart.numEntries());
+    pen.println("numThings (should be 22): " + cart.numThings());
     pen.println("printContents: ");
     cart.printContents(pen);
     pen.println();
@@ -145,8 +145,8 @@ public class Tests {
     cart.merge();
     pen.println();
     pen.println("TESTS AFTER MERGING");
-    pen.println("numEntries (should be 10): " + cart.numEntries());
-    pen.println("numThings (should be 23): " + cart.numThings());
+    pen.println("numEntries (should be 9): " + cart.numEntries());
+    pen.println("numThings (should be 22): " + cart.numThings());
     pen.println("printContents: ");
     cart.printContents(pen);
     

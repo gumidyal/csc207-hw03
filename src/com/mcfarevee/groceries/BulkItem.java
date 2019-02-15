@@ -83,6 +83,20 @@ public class BulkItem implements Item {
     return 1;
   } // getCount()
   
+  /**
+   * Get the food
+   */
+  public BulkFood getFood() {
+    return this.food;
+  } // getFood()
+  
+  /**
+   * Get the unit
+   */
+  public Unit getUnit() {
+    return this.unit;
+  } // getFood()
+  
   // +---------+-----------------------------------------------------
   // | Methods |
   // +---------+
@@ -103,21 +117,10 @@ public class BulkItem implements Item {
   /**
    * Checks if this BulkItem can merge with other BulkItem
    */
-  public boolean canMerge(BulkItem other) {
-    if (this.equals(other)) {
-      return true;
-    }
-    else return false;
-  } // canMerge(ManyPackages other)
-  
-  /**
-   * Checks if this BulkItem can merge with non-BulkItem
-   * 
-   * @returns false
-   */
-  public boolean canMerge(Item other) {
-    return false;
-  } // canMerge(Item other)
+  public String canMerge() {
+    String result = this.unit.toString() + " of " + this.food.name;
+    return result;
+  } // canMerge()
   
   /**
    * Merges two identical bulk items 

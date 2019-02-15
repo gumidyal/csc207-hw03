@@ -103,9 +103,9 @@ public class NonFood implements Item {
    * 
    * @returns false
    */
-  public boolean canMerge(Item other) {
-    return false;
-  } // canMerge(Item other)
+  public String canMerge() {
+    return "Cannot Merge";
+  } // canMerge()
   
   /**
    * Non-foods cannot merge, so returns this Item

@@ -1,6 +1,7 @@
 package com.mcfarevee.shopping;
 
 import com.mcfarevee.groceries.*;
+import com.mcfarevee.groceries.Package;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
@@ -82,7 +83,7 @@ public class Cart {
   public Weight[] getWeight() {
     return this.weight;
   } // getWeight()
-  
+
   /**
    * Prints the weights and their corresponding units
    */
@@ -92,7 +93,7 @@ public class Cart {
     pen.println(" * Weights in grams: " + this.getWeight()[2].getAmount());
     pen.println(" * Weights in kilograms: " + this.getWeight()[3].getAmount());
   } // printWeights(PrintWriter pen)
-  
+
   // +---------+-----------------------------------------------------
   // | Methods |
   // +---------+
@@ -103,7 +104,8 @@ public class Cart {
   public void addItem(Item item) {
     this.numPackages += item.getCount();
     this.price += item.getPrice();
-
+    
+    // Update weight array (field)
     if (item.getWeight().getUnit().toString().equals("pound")) {
       int resamount;
       resamount = this.weight[0].getAmount() + item.getWeight().getAmount();
@@ -154,10 +156,11 @@ public class Cart {
 
     for (int i = 0; i < this.cart.size(); i++) {
 
-      if (this.cart.get(i).getName().equals(name)) {
+      if (this.cart.get(i).getName().equals(name)) { // Check if item should be removed
         this.numPackages -= cart.get(i).getCount();
         this.price -= cart.get(i).getPrice();
 
+        // Update weight array (field)
         if (cart.get(i).getWeight().getUnit().toString().equals("pound")) {
           int resamount;
           resamount = this.weight[0].getAmount() - cart.get(i).getWeight().getAmount();
@@ -187,14 +190,56 @@ public class Cart {
     return removed;
   } // remove(String name)
 
+  /**
+   * Merge all compatible item types if they are identical
+   */
   public void merge() {
     for (int i = 0; i < this.cart.size(); i++) {
       for (int k = i + 1; k < this.cart.size(); k++) {
-        if (this.cart.get(i).canMerge(this.cart.get(k))) {
-          cart.add(this.cart.get(i).merge(this.cart.get(k)));
-          cart.remove(this.cart.get(i));
-          cart.remove(this.cart.get(k));
-          k--;
+        if (this.cart.get(i).canMerge().equals(this.cart.get(k).canMerge())
+            && !(this.cart.get(i).canMerge().equals("Cannot Merge"))) { // Check if items can merge
+          if (this.cart.get(i) instanceof BulkItem) { // Merges if both BulkItems
+            BulkItem b1 = (BulkItem) this.cart.get(i);
+            BulkItem b2 = (BulkItem) this.cart.get(k);
+            BulkItem result =
+                new BulkItem(b1.getFood(), b1.getUnit(), (b1.getCount() + b2.getCount()));
+            cart.add(result);
+            cart.remove(this.cart.get(i));
+            cart.remove(this.cart.get(k));
+            k--;
+          } else if (this.cart.get(i) instanceof Package && this.cart.get(k) instanceof Package) {
+            // Merge if both Packages
+            ManyPackages result = new ManyPackages((Package) this.cart.get(i), 2);
+            cart.add(result);
+            cart.remove(this.cart.get(i));
+            cart.remove(this.cart.get(k));
+            k--;
+          } else if (this.cart.get(i) instanceof ManyPackages
+              && this.cart.get(k) instanceof ManyPackages) { // Merge if both ManyPackages
+            ManyPackages pac1 = (ManyPackages) this.cart.get(i);
+            ManyPackages pac2 = (ManyPackages) this.cart.get(k);
+            ManyPackages result =
+                new ManyPackages(pac1.getPac(), pac1.getCount() + pac2.getCount());
+            cart.add(result);
+            cart.remove(this.cart.get(i));
+            cart.remove(this.cart.get(k));
+            k--;
+          } else if (this.cart.get(i) instanceof ManyPackages) { // Merge if mix of ManyPackages
+                                                                 // and Package
+            ManyPackages copy = (ManyPackages) this.cart.get(i);
+            ManyPackages result = new ManyPackages(copy.getPac(), copy.getCount() + 1);
+            cart.add(result);
+            cart.remove(this.cart.get(i));
+            cart.remove(this.cart.get(k));
+            k--;
+          } else {// Merge if mix of Package and ManyPackages
+            ManyPackages copy = (ManyPackages) this.cart.get(k);
+            ManyPackages result = new ManyPackages(copy.getPac(), copy.getCount() + 1);
+            cart.add(result);
+            cart.remove(this.cart.get(i));
+            cart.remove(this.cart.get(k));
+            k--;
+          } // else
         } // if merge possible
       } // for
     } // for

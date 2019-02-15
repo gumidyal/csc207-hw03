@@ -77,7 +77,14 @@ public class ManyPackages implements Item {
   public int getCount() {
     return this.count;
   } // getCount()
-
+  
+  /**
+   * Returns the package
+   */
+  public Package getPac() {
+    return this.type;
+  } // getPac()
+  
   // +---------+-----------------------------------------------------
   // | Methods |
   // +---------+
@@ -97,31 +104,10 @@ public class ManyPackages implements Item {
   /**
    * Checks if this ManyPackages can merge with other Package
    */
-  public boolean canMerge(Package other) {
-    if (this.type.equals(other)) {
-      return true;
-    }
-    else return false;
-  } // canMerge(Package other)
-  
-  /**
-   * Checks if this ManyPackages can merge with other ManyPackages
-   */
-  public boolean canMerge(ManyPackages other) {
-    if (this.equals(other)) {
-      return true;
-    }
-    else return false;
-  } // canMerge(ManyPackages other)
-  
-  /**
-   * Checks if this ManyPackages can merge with non-Package or ManyPackages
-   * 
-   * @returns false
-   */
-  public boolean canMerge(Item other) {
-    return false;
-  } // canMerge(Item other)
+  public String canMerge() {
+    String result = new String(this.type.toString());
+    return result;
+  } // canMerge()
   
   /**
    * Merges a ManyPackages item with an identical Package item

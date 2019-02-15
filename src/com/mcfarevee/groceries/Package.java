@@ -101,33 +101,15 @@ public class Package implements Item {
   } // equals(Package other)
   
   /**
-   * Checks if this Package can merge with other Package
-   */
-  public boolean canMerge(Package other) {
-    if (this.equals(other)) {
-      return true;
-    }
-    else return false;
-  } // canMerge(Package other)
-  
-  /**
-   * Checks if this Package can merge with other ManyPackages
-   */
-  public boolean canMerge(ManyPackages other) {
-    if (this.equals(other.type)) {
-      return true;
-    }
-    else return false;
-  } // canMerge(ManyPackages other)
-  
-  /**
-   * Checks if this Package can merge with non-Package or ManyPackages
+   * Returns string for checking mergeability
    * 
    * @returns false
    */
-  public boolean canMerge(Item other) {
-    return false;
-  } // canMerge(Item other)
+  public String canMerge() {
+    String result =
+        this.weight.amount + " " + this.weight.unit.toString() + " package of " + this.name;
+    return result;
+  } // canMerge()
  
   /**
    * Merges two identical Package items into a ManyPackages item

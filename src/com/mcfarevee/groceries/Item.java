@@ -39,7 +39,7 @@ public interface Item {
   /**
    * Checks if two Items can merge
    */
-  public boolean canMerge(Item other);
+  public String canMerge();
   
   /**
    * Merge two items if possible
