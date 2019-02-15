@@ -18,3 +18,12 @@ This repository contains all classes for Assignment 3, including two folders ins
   https://stackoverflow.com/questions/3993982/how-to-check-type-of-variable-in-java
 * Also referenced Sam's Eboards #6 and #7:
   https://www.cs.grinnell.edu/~rebelsky/Courses/CSC207/2019S/02/eboards/
+* ArrayList versus LinkedList in java:
+  https://stackoverflow.com/questions/322715/when-to-use-linkedlist-over-arraylist-in-java
+* Help from Mia Le (Got advice on casting types)
+
+## Additional note:
+We only realized at the very end of the project that it is possible to cast
+types from classes we made. We used this technique for some of our merge
+method in the Cart class, but we now realize that it would have made many
+other parts of our code more efficient to have used earlier.
