@@ -82,7 +82,17 @@ public class Cart {
   public Weight[] getWeight() {
     return this.weight;
   } // getWeight()
-
+  
+  /**
+   * Prints the weights and their corresponding units
+   */
+  public void printWeights(PrintWriter pen) {
+    pen.println(" * Weights in pounds: " + this.getWeight()[0].getAmount());
+    pen.println(" * Weights in ounces: " + this.getWeight()[1].getAmount());
+    pen.println(" * Weights in grams: " + this.getWeight()[2].getAmount());
+    pen.println(" * Weights in kilograms: " + this.getWeight()[3].getAmount());
+  } // printWeights(PrintWriter pen)
+  
   // +---------+-----------------------------------------------------
   // | Methods |
   // +---------+
@@ -123,13 +133,18 @@ public class Cart {
    */
   public void printContents(PrintWriter pen) {
     int size = this.cart.size();
-    for (int i = 0; i < size; i++) {
-      pen.println(this.cart.get(i).toString());
-    } // for
+    if (size == 0) {
+      pen.println("Cart empty.");
+    } else {
+      pen.println("Cart contents:");
+      for (int i = 0; i < size; i++) {
+        pen.println(" * " + this.cart.get(i).toString());
+      } // for
+    } // else
   } // printContents(PrintWriter pen)
 
   /**
-   * Remove all items with given name from string
+   * Remove all items with given name from string, and return boolean describing success
    * 
    * @return true if items removed
    * @return false if no items exist with name "name". Cart not changed.
@@ -179,6 +194,7 @@ public class Cart {
           cart.add(this.cart.get(i).merge(this.cart.get(k)));
           cart.remove(this.cart.get(i));
           cart.remove(this.cart.get(k));
+          k--;
         } // if merge possible
       } // for
     } // for
