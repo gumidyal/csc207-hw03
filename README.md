@@ -5,8 +5,8 @@ Kedam Habte and Ally Rogers
 
 ## Contents:
 This repository contains all classes for Assignment 3, including two folders inside the src folder:
-* csc207 folder, which contains all classes for implementing TextBlock interface
-* com folder, containing three folders
+* csc207 folder (contains all classes for implementing TextBlock interface)
+* com folder (containing three folders):
   * com.mcfarevee.groceries which contains many classes for grocery types
   * com.mcfarevee.shopping which contains one class to simulate a shopping cart
   * com.mcfarevee.tests which contains one class whose main method tests all other methods
