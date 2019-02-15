@@ -1,4 +1,8 @@
-# CSC 207 Assignment #3 (Kedam and Ally)
+# CSC 207 Assignment #3
+
+## Group members:
+Kedam Habte and Ally Rogers
+
 ## Contents:
 This repository contains two folders in the src folder:
 * csc207 folder, which contains all classes for implementing TextBlock interface
